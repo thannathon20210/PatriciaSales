@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduBright | คอร์สเรียนออนไลน์ ม.ปลาย</title>
+
+  <!-- Pico CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #facc15;
+      --soft-blue: #eff6ff;
+      --soft-purple: #f5f3ff;
+      --dark: #0f172a;
+      --muted: #64748b;
+      --radius: 22px;
+    }
+
+    body {
+      background: linear-gradient(180deg, #ffffff 0%, #eff6ff 45%, #ffffff 100%);
+      color: var(--dark);
+    }
+
+    nav {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    nav strong {
+      color: var(--primary);
+      font-size: 1.25rem;
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+
+    .hero-card {
+      padding: 2.5rem;
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at top right, rgba(250,204,21,0.35), transparent 28%),
+        linear-gradient(135deg, #dbeafe, #ffffff 55%, #fef9c3);
+      box-shadow: 0 28px 70px rgba(37, 99, 235, 0.14);
+      border: 1px solid #dbeafe;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: .45rem .8rem;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: .9rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      margin-top: 1.4rem;
+    }
+
+    .hero-img {
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.16);
+      background: white;
+      padding: .8rem;
+    }
+
+    .hero-img img {
+      border-radius: 20px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stats {
+      margin-top: 2rem;
+    }
+
+    .stat-box {
+      padding: 1.3rem;
+      border-radius: var(--radius);
+      background: white;
+      border: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    .stat-box h3 {
+      color: var(--primary);
+      margin-bottom: .25rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 4rem auto 2rem;
+      max-width: 760px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -0.03em;
+    }
+
+    .course-card {
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(37, 99, 235, 0.14);
+    }
+
+    .course-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--soft-blue);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .promo {
+      margin-top: 4rem;
+      padding: 2rem;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      overflow: hidden;
+    }
+
+    .promo h2,
+    .promo p {
+      color: white;
+    }
+
+    .promo mark {
+      background: var(--accent);
+      color: #111827;
+      padding: .2rem .55rem;
+      border-radius: .5rem;
+      font-weight: 800;
+    }
+
+    .teacher-card,
+    .review-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .teacher-card img {
+      border-radius: 18px;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .subscribe-box {
+      border-radius: 28px;
+      background: #0f172a;
+      color: white;
+      padding: 2rem;
+    }
+
+    .subscribe-box h2,
+    .subscribe-box h3 {
+      color: white;
+    }
+
+    footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .chat-button {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 50;
+      border-radius: 999px;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      nav ul:last-child {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-card {
+        padding: 1.5rem;
+      }
+
+      .promo {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>EduBright</strong></li>
+    </ul>
+    <ul>
+      <li><a href="#courses">คอร์สเรียน</a></li>
+      <li><a href="#teachers">ทีมสอน</a></li>
+      <li><a href="#reviews">ผลงานนักเรียน</a></li>
+      <li><a href="#subscribe" role="button">สมัครเรียน</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="grid">
+          <section>
+            <span class="badge">NEW TCAS70 • ฟิสิกส์ เคมี คณิต</span>
+            <h1>เรียนออนไลน์ให้เข้าใจจริง พร้อมสอบติดคณะที่ใช่</h1>
+            <p>
+              รวมคอร์ส ม.ปลาย สำหรับเพิ่มเกรด เตรียมสอบ A-Level, สอวน.,
+              วิศวะ แพทย์ และสายวิทย์สุขภาพ พร้อมระบบถามตอบกับทีมวิชาการ
+            </p>
+
+            <div class="hero-actions">
+              <a href="#courses" role="button">ดูคอร์สทั้งหมด</a>
+              <a href="#promo" role="button" class="secondary">รับโปรโมชั่น</a>
+            </div>
+          </section>
+
+          <section>
+            <figure class="hero-img">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+                   alt="นักเรียนกำลังเรียนออนไลน์เป็นกลุ่ม">
+            </figure>
+          </section>
+        </div>
+
+        <div class="grid stats">
+          <div class="stat-box">
+            <h3>24 ชม.</h3>
+            <small>ตอบคำถามโดยทีมวิชาการ</small>
+          </div>
+          <div class="stat-box">
+            <h3>100+</h3>
+            <small>บทเรียนและแบบฝึกหัด</small>
+          </div>
+          <div class="stat-box">
+            <h3>ม.4-ม.6</h3>
+            <small>เหมาะกับนักเรียนมัธยมปลาย</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="section-title">
+        <hgroup>
+          <h2>เลือกคอร์สที่เหมาะกับเป้าหมายของคุณ</h2>
+          <h3>เรียนเป็นระบบ เข้าใจง่าย และวางแผนสอบได้ชัดเจน</h3>
+        </hgroup>
+      </div>
+
+      <div class="grid">
+        <article class="course-card">
+          <div class="course-icon">🧲</div>
+          <h3>ฟิสิกส์ A-Level</h3>
+          <p>ปูพื้นฐานถึงโจทย์ประยุกต์ เหมาะสำหรับสายวิทย์และวิศวะ</p>
+          <a href="#" role="button">ดูรายละเอียด</a>
+        </article>
+
+        <article class="course-card">
+          <div class="course-icon">⚗️</div>
+          <h3>เคมี ม.ปลาย</h3>
+          <p>สรุปเนื้อหาสำคัญ พร้อมเทคนิคจำและฝึกโจทย์สอบจริง</p>
+          <a href="#" role="button">ดูรายละเอียด</a>
+        </article>
+
+        <article class="course-card">
+          <div class="course-icon">📐</div>
+          <h3>คณิตศาสตร์ TCAS</h3>
+          <p>เน้นทำโจทย์เป็นขั้นตอน เหมาะสำหรับเพิ่มคะแนนสอบเข้า</p>
+          <a href="#" role="button">ดูรายละเอียด</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="promo" class="promo">
+      <div class="grid">
+        <section>
+          <h2>โปรโมชั่นเปิดเทอม</h2>
+          <p>ใช้โค้ด <mark>EDU500</mark> รับส่วนลดทันที 500 บาท สำหรับคอร์สที่ร่วมรายการ</p>
+        </section>
+        <section>
+          <a href="#subscribe" role="button" class="contrast">สมัครรับสิทธิ์</a>
+        </section>
+      </div>
+    </section>
+
+    <section id="teachers">
+      <div class="section-title">
+        <hgroup>
+          <h2>ทีมสอนและพี่ติวเตอร์</h2>
+          <h3>สอนเข้าใจง่าย พร้อมแนะแนวการเรียนแบบเป็นขั้นตอน</h3>
+        </hgroup>
+      </div>
+
+      <div class="grid">
+        <article class="teacher-card">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1000&auto=format&fit=crop"
+               alt="ติวเตอร์กำลังสอนในห้องเรียน">
+          <h3>พี่นัท — ฟิสิกส์</h3>
+          <p>เน้นเข้าใจหลักการและเชื่อมโยงโจทย์สอบ</p>
+        </article>
+
+        <article class="teacher-card">
+          <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=1000&auto=format&fit=crop"
+               alt="ครูกำลังอธิบายบทเรียน">
+          <h3>พี่มายด์ — เคมี</h3>
+          <p>สรุปเนื้อหาให้จำง่าย พร้อมแบบฝึกหัดท้ายบท</p>
+        </article>
+
+        <article class="teacher-card">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop"
+               alt="นักเรียนกำลังเรียนกับติวเตอร์">
+          <h3>พี่ภพ — คณิตศาสตร์</h3>
+          <p>สอนวิธีคิดและลำดับขั้นตอนการแก้โจทย์</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="section-title">
+        <hgroup>
+          <h2>ผลงานและเสียงจากนักเรียน</h2>
+          <h3>รีวิวจากผู้เรียนที่ใช้คอร์สเพื่อเตรียมสอบจริง</h3>
+        </hgroup>
+      </div>
+
+      <div class="grid">
+        <article class="review-card">
+          <h3>“จากไม่เข้าใจฟิสิกส์ กลับมาทำโจทย์ได้”</h3>
+          <p>บทเรียนแบ่งเป็นตอนสั้น ๆ ทำให้ทบทวนง่ายก่อนสอบ</p>
+          <small>— นักเรียน ม.6</small>
+        </article>
+
+        <article class="review-card">
+          <h3>“มีทีมตอบคำถาม ช่วยให้ไม่ค้าง”</h3>
+          <p>เวลาติดโจทย์สามารถถามได้ ทำให้เรียนต่อเนื่องมากขึ้น</p>
+          <small>— นักเรียนสายวิทย์</small>
+        </article>
+
+        <article class="review-card">
+          <h3>“เหมาะกับคนอยากวางแผน TCAS”</h3>
+          <p>มีคอร์สแยกตามเป้าหมาย เช่น วิศวะ แพทย์ และเพิ่มเกรด</p>
+          <small>— นักเรียนเตรียมสอบ</small>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <section id="subscribe" aria-label="Subscribe example">
+    <div class="container">
+      <article class="subscribe-box">
+        <hgroup>
+          <h2>รับแผนการเรียนฟรี</h2>
+          <h3>กรอกข้อมูลเพื่อให้ทีมงานส่งคอร์สที่เหมาะกับเป้าหมายของคุณ</h3>
+        </hgroup>
+
+        <form class="grid">
+          <input type="text" id="firstname" name="firstname" placeholder="ชื่อเล่น" aria-label="ชื่อเล่น" required>
+          <input type="email" id="email" name="email" placeholder="อีเมล" aria-label="อีเมล" required>
+          <button type="submit" onclick="event.preventDefault()">ส่งข้อมูล</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <footer class="container">
+    <small>
+      <a href="#">เกี่ยวกับเรา</a> •
+      <a href="#">FAQ</a> •
+      <a href="#">ติดต่อทีมงาน</a>
+      <br>
+      © 2026 EduBright. ตัวอย่างเว็บไซต์สำหรับคอร์สเรียนออนไลน์
+    </small>
+  </footer>
+
+  <a class="chat-button" href="#" role="button">💬 ถามทีมวิชาการ</a>
+
+</body>
+</html>
