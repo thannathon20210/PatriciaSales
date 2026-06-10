@@ -220,20 +220,191 @@
     }
 
     @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+
+      nav.container-fluid {
+        padding: .75rem 1rem;
+        gap: .5rem;
+      }
+
+      nav strong {
+        font-size: 1.05rem;
+      }
+
+      nav ul:first-child {
+        margin-bottom: .35rem;
+      }
+
       nav ul:last-child {
+        display: flex;
+        width: 100%;
+        gap: .45rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: .25rem;
+        scrollbar-width: none;
+      }
+
+      nav ul:last-child::-webkit-scrollbar {
         display: none;
       }
 
+      nav a {
+        font-size: .9rem;
+        padding: .45rem .6rem;
+      }
+
+      nav a[role="button"] {
+        padding: .5rem .75rem;
+      }
+
+      main.container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
       .hero {
-        padding-top: 3rem;
+        padding: 1.6rem 0 2rem;
       }
 
       .hero-card {
-        padding: 1.5rem;
+        padding: 1.15rem;
+        border-radius: 24px;
+      }
+
+      .badge {
+        font-size: .78rem;
+        padding: .35rem .6rem;
+        margin-bottom: .75rem;
+      }
+
+      h1 {
+        font-size: clamp(1.85rem, 10vw, 2.65rem);
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+      }
+
+      .hero p {
+        font-size: .98rem;
+        line-height: 1.65;
+      }
+
+      .hero-actions {
+        gap: .55rem;
+      }
+
+      .hero-actions a {
+        width: 100%;
+        text-align: center;
+        margin-bottom: .25rem;
+      }
+
+      .hero-img {
+        margin-top: 1rem;
+        padding: .55rem;
+        border-radius: 22px;
+      }
+
+      .hero-img img {
+        max-height: 260px;
+        border-radius: 16px;
+      }
+
+      .stats {
+        margin-top: 1rem;
+      }
+
+      .stat-box {
+        padding: 1rem;
+      }
+
+      .stat-box h3 {
+        font-size: 1.25rem;
+      }
+
+      .section-title {
+        margin: 2.5rem auto 1.2rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.65rem;
+        line-height: 1.25;
+      }
+
+      .section-title h3 {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .course-card,
+      .teacher-card,
+      .review-card {
+        padding: 1rem;
+        border-radius: 18px;
+      }
+
+      .teacher-card img {
+        height: 190px;
       }
 
       .promo {
-        padding: 1.4rem;
+        margin-top: 2.5rem;
+        padding: 1.15rem;
+        border-radius: 22px;
+      }
+
+      .promo h2 {
+        font-size: 1.55rem;
+      }
+
+      .subscribe-box {
+        padding: 1.25rem;
+        border-radius: 22px;
+      }
+
+      .subscribe-box h2 {
+        font-size: 1.55rem;
+      }
+
+      footer {
+        padding: 1.75rem 1rem 5rem;
+      }
+
+      .chat-button {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        text-align: center;
+        width: auto;
+        padding: .85rem 1rem;
+        font-size: .95rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      nav.container-fluid {
+        padding-left: .8rem;
+        padding-right: .8rem;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero-card {
+        padding: 1rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.45rem;
+      }
+
+      .course-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.55rem;
       }
     }
   </style>
