@@ -4,100 +4,917 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PatriciaSales | ขายคอร์ส ยิงแอด และคอนเทนต์</title>
+
+  <!-- Pico CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
   <style>
-    :root{--primary:#111827;--accent:#d4af37;--cream:#f7f3ea;--dark:#09090b;--muted:#6b7280;--radius:24px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}
-    body{background:#f7f3ea;color:var(--dark);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    h1,h2{letter-spacing:-.055em}
-    nav.container-fluid{width:min(1180px,calc(100% - 2rem));margin:1rem auto 0;padding:.8rem .9rem;border-radius:999px;background:rgba(255,255,255,.78);backdrop-filter:blur(18px);border:1px solid rgba(17,24,39,.12);box-shadow:0 22px 60px rgba(17,24,39,.12);position:sticky;top:1rem;z-index:50}
-    nav strong{color:#111827;font-size:1.05rem;letter-spacing:-.02em}
-    nav ul:last-child{gap:.35rem;align-items:center}
-    nav a{color:#111827;font-weight:700;font-size:.88rem;border-radius:999px;padding:.45rem .7rem}
-    nav a[role=button]{background:#111827;border-color:#111827;color:#fff;padding:.65rem 1rem}
-    .hero{padding:1.2rem 0 2.2rem}
-    .hero-card{position:relative;overflow:hidden;min-height:690px;padding:3.4rem;border-radius:34px;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48) 42%,rgba(0,0,0,.22)),url("https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1800&auto=format&fit=crop");background-size:cover;background-position:center;color:#fff;box-shadow:0 32px 90px rgba(17,24,39,.24)}
-    .hero-card:after{content:"";position:absolute;inset:auto 0 0;height:46%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.76));pointer-events:none}
-    .hero-card>*{position:relative;z-index:2}
-    .badge{display:inline-flex;gap:.35rem;align-items:center;padding:.48rem .85rem;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);color:#fff;font-weight:800;font-size:.88rem;margin-bottom:1rem;backdrop-filter:blur(10px)}
-    h1{max-width:720px;color:#fff;font-size:clamp(3rem,8vw,7.2rem);line-height:.9;margin-bottom:1rem;font-family:Georgia,"Times New Roman",serif;font-weight:500}
-    .hero p{color:rgba(255,255,255,.84);font-size:1rem;max-width:490px;margin-bottom:0}
-    .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.25rem}
-    .hero-actions a{border-radius:999px;font-weight:800;padding:.85rem 1.1rem}
-    .hero-actions .secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.34);backdrop-filter:blur(10px)}
-    .service-overlay{position:absolute;left:1.2rem;right:1.2rem;bottom:1.2rem;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
-    .overlay-card{min-height:175px;padding:1.25rem;border-radius:22px;background:rgba(255,255,255,.92);color:#111827;box-shadow:0 24px 50px rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.7)}
-    .overlay-card small{color:var(--muted);font-weight:800}.overlay-card h3{margin:.15rem 0 .6rem;font-size:1.4rem;letter-spacing:-.04em}.overlay-card p{color:#4b5563;font-size:.9rem;margin-bottom:1rem}.overlay-card a{border-radius:999px;padding:.5rem .75rem;font-size:.82rem;background:#111827;border-color:#111827}
-    .stats{margin-top:2rem}.stat-box{padding:1.3rem;border-radius:var(--radius);background:rgba(255,255,255,.85);border:1px solid rgba(17,24,39,.08);text-align:center;box-shadow:0 16px 40px rgba(17,24,39,.08)}.stat-box h3{color:#111827;margin-bottom:.25rem;font-size:1.6rem}.stat-box small{color:var(--muted);font-weight:700}
-    .section-title{text-align:center;margin:4.5rem auto 2rem;max-width:760px}.section-title h2{font-size:clamp(2.2rem,5vw,4.8rem);line-height:.95;font-family:Georgia,"Times New Roman",serif;font-weight:500}.section-title h3{color:var(--muted);font-size:1.05rem}
-    .course-card{min-height:275px;border-radius:var(--radius);padding:1.4rem;background:#fff;border:1px solid rgba(17,24,39,.08);box-shadow:0 18px 45px rgba(17,24,39,.08);transition:transform .2s ease,box-shadow .2s ease}.course-card:hover{transform:translateY(-6px);box-shadow:0 30px 70px rgba(17,24,39,.14)}
-    .course-icon{width:56px;height:56px;display:grid;place-items:center;border-radius:18px;background:#111827;color:#fff;font-size:1.6rem;margin-bottom:1rem}.course-card h3{font-size:1.35rem;letter-spacing:-.035em}.course-card p{color:var(--muted)}.course-card a{border-radius:999px;background:#111827;border-color:#111827}
-    .promo{margin-top:4rem;padding:2.3rem;border-radius:30px;background:linear-gradient(135deg,rgba(0,0,0,.9),rgba(17,24,39,.8)),url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop");background-size:cover;background-position:center;color:white;overflow:hidden;box-shadow:0 26px 70px rgba(17,24,39,.2)}.promo h2{color:white;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4vw,3.8rem);font-weight:500}.promo p{color:rgba(255,255,255,.82)}.promo mark{background:var(--accent);color:#111827;padding:.18rem .55rem;border-radius:.5rem;font-weight:900}.promo a{border-radius:999px}
-    .teacher-card,.review-card{background:white;border-radius:var(--radius);padding:1.25rem;border:1px solid rgba(17,24,39,.08);box-shadow:0 16px 40px rgba(17,24,39,.07)}.teacher-card img{border-radius:18px;width:100%;height:230px;object-fit:cover;margin-bottom:1rem;filter:grayscale(.15)}.teacher-card h3,.review-card h3{letter-spacing:-.035em}.teacher-card p,.review-card p{color:var(--muted)}.review-card{min-height:205px}
-    .subscribe-box{border-radius:30px;background:#111827;color:white;padding:2.3rem;box-shadow:0 26px 70px rgba(17,24,39,.22)}.subscribe-box h2{color:white;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,5vw,4rem);font-weight:500}.subscribe-box h3{color:rgba(255,255,255,.7)}.subscribe-box input{border-radius:999px}.subscribe-box button{border-radius:999px;background:var(--accent);border-color:var(--accent);color:#111827;font-weight:900}
-    footer{padding:2.5rem 0 6rem;text-align:center;color:var(--muted)}.chat-button{position:fixed;right:22px;bottom:22px;z-index:50;border-radius:999px;background:#111827;border-color:#111827;color:#fff;box-shadow:0 18px 40px rgba(17,24,39,.35);font-weight:900}
-    @media(max-width:900px){nav.container-fluid{display:block;overflow-x:auto;border-radius:22px;top:.5rem}nav.container-fluid ul{display:flex;flex-wrap:nowrap;white-space:nowrap}nav.container-fluid ul:first-child{margin-bottom:.45rem}.hero{padding-top:.8rem}.hero-card{min-height:auto;padding:1.2rem;border-radius:26px;background:linear-gradient(180deg,rgba(0,0,0,.84),rgba(0,0,0,.48) 48%,rgba(0,0,0,.86)),url("https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1200&auto=format&fit=crop");background-size:cover;background-position:center}.hero-card:after{display:none}h1{font-size:clamp(3rem,15vw,4.4rem);margin-top:.4rem}.hero p{font-size:.98rem}.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions a{width:100%;text-align:center}.service-overlay{position:static;margin-top:2rem;grid-template-columns:1fr}.overlay-card,.course-card{min-height:auto}.stats{grid-template-columns:1fr}.section-title{margin-top:3rem}.section-title h2{font-size:clamp(2.35rem,12vw,3.4rem)}.promo{padding:1.3rem;border-radius:24px}.teacher-card img{height:210px}.subscribe-box{padding:1.35rem;border-radius:24px}.subscribe-box form{grid-template-columns:1fr}.chat-button{left:1rem;right:1rem;bottom:1rem;text-align:center;width:auto;padding:.9rem 1rem}}
+    :root {
+      --primary: #111827;
+      --primary-hover: #000000;
+      --accent: #d9c995;
+      --soft-blue: #edf3f8;
+      --soft-silver: #f6f8fa;
+      --glass: rgba(255, 255, 255, 0.72);
+      --dark: #101214;
+      --muted: #626b75;
+      --radius: 28px;
+      --shadow: 0 28px 80px rgba(22, 28, 35, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--dark);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255,255,255,0.95), transparent 32%),
+        radial-gradient(circle at 90% 0%, rgba(216,229,239,0.9), transparent 34%),
+        linear-gradient(180deg, #f7fafc 0%, #ffffff 46%, #eef4f8 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url("assets/premium-wave-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: .18;
+      filter: saturate(.8);
+    }
+
+    nav.container-fluid {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: .9rem clamp(1rem, 4vw, 2.4rem);
+      background: rgba(247, 250, 252, .72);
+      backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(17, 24, 39, .06);
+    }
+
+    nav ul {
+      align-items: center;
+    }
+
+    nav strong {
+      color: var(--primary);
+      font-size: clamp(1.05rem, 4vw, 1.35rem);
+      letter-spacing: -.04em;
+    }
+
+    nav a {
+      color: #1f2937;
+      font-size: .92rem;
+      white-space: nowrap;
+    }
+
+    nav a[role="button"] {
+      border-radius: 999px;
+      padding: .68rem 1.05rem;
+      background: #111827;
+      border: 0;
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(17, 24, 39, .18);
+    }
+
+    .hero {
+      padding: clamp(1.2rem, 3vw, 2rem) 0 3rem;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 640px;
+      padding: clamp(1.2rem, 4vw, 3rem);
+      border-radius: 34px;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,.92), rgba(235,243,248,.74)),
+        url("assets/premium-wave-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, .9);
+    }
+
+    .hero-card::before {
+      content: "SALES";
+      position: absolute;
+      top: -7.5rem;
+      left: -1.4rem;
+      font-size: clamp(7rem, 22vw, 19rem);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.11em;
+      color: rgba(16, 18, 20, .09);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -10rem;
+      bottom: -11rem;
+      width: 32rem;
+      height: 32rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.88), rgba(217,201,149,.36) 34%, rgba(177,197,211,.24) 60%, transparent 72%);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      gap: clamp(1.4rem, 4vw, 3.2rem);
+      align-items: center;
+      min-height: 470px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .95rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .72);
+      color: #1f2937;
+      border: 1px solid rgba(17,24,39,.08);
+      box-shadow: 0 10px 26px rgba(17,24,39,.06);
+      font-weight: 700;
+      font-size: .86rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(14px);
+    }
+
+    .badge::before {
+      content: "";
+      width: .48rem;
+      height: .48rem;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(217,201,149,.22);
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      max-width: 760px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.4rem, 10vw, 7.7rem);
+      line-height: .86;
+      letter-spacing: -.075em;
+      font-weight: 500;
+      color: #151719;
+    }
+
+    .hero p {
+      color: #4b5563;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      max-width: 620px;
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: .7rem;
+      flex-wrap: wrap;
+      margin-top: 1.55rem;
+    }
+
+    .hero-actions a {
+      border-radius: 999px;
+      padding: .86rem 1.2rem;
+      border: 0;
+    }
+
+    .hero-actions a:first-child {
+      background: #111827;
+      color: #fff;
+      box-shadow: 0 18px 38px rgba(17, 24, 39, .2);
+    }
+
+    .hero-actions .secondary {
+      background: rgba(255,255,255,.68);
+      color: #111827;
+      border: 1px solid rgba(17,24,39,.08);
+    }
+
+    .mockup {
+      position: relative;
+      padding: clamp(1rem, 3vw, 1.4rem);
+      border-radius: 32px;
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: 0 30px 80px rgba(17,24,39,.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .mockup-screen {
+      min-height: 320px;
+      border-radius: 24px;
+      padding: 1rem;
+      background:
+        radial-gradient(circle at 64% 22%, rgba(217,201,149,.42), transparent 22%),
+        linear-gradient(135deg, #f8fafc, #e7eef4 55%, #ffffff);
+      border: 1px solid rgba(17,24,39,.08);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mockup-screen::before {
+      content: "";
+      position: absolute;
+      width: 15rem;
+      height: 15rem;
+      right: -3.8rem;
+      top: 4.4rem;
+      border-radius: 45% 55% 46% 54%;
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(214,226,236,.56));
+      box-shadow: inset 16px 18px 30px rgba(255,255,255,.8), inset -16px -16px 28px rgba(89,102,116,.12);
+      transform: rotate(-24deg);
+    }
+
+    .mockup-top {
+      display: flex;
+      justify-content: space-between;
+      gap: .8rem;
+      font-size: .72rem;
+      color: #6b7280;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 3.8rem;
+    }
+
+    .mockup-title {
+      position: relative;
+      z-index: 2;
+      max-width: 330px;
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      line-height: .98;
+      letter-spacing: -.06em;
+      font-weight: 600;
+      color: #202428;
+    }
+
+    .mockup-title span {
+      color: #7b8794;
+      font-weight: 300;
+    }
+
+    .mini-cta {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .55rem .85rem;
+      border-radius: 999px;
+      background: #111827;
+      color: #fff;
+      font-size: .78rem;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 3;
+      margin-top: -4.6rem;
+      padding: 0 clamp(.8rem, 3vw, 1.2rem) clamp(.8rem, 3vw, 1.2rem);
+    }
+
+    .stat-box {
+      padding: 1.25rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.95);
+      box-shadow: 0 20px 55px rgba(17,24,39,.11);
+      backdrop-filter: blur(18px);
+      text-align: left;
+    }
+
+    .stat-box h3 {
+      color: #111827;
+      margin-bottom: .25rem;
+      font-size: clamp(1.55rem, 4vw, 2.2rem);
+      letter-spacing: -.05em;
+    }
+
+    .stat-box small {
+      color: #59636e;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: clamp(3.2rem, 8vw, 6rem) auto 2rem;
+      max-width: 860px;
+    }
+
+    .eyebrow {
+      color: #7d8791;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .76rem;
+      font-weight: 800;
+      margin-bottom: .6rem;
+    }
+
+    .section-title h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 6vw, 5rem);
+      line-height: .96;
+      letter-spacing: -.06em;
+      font-weight: 500;
+      margin-bottom: .8rem;
+    }
+
+    .section-title h3 {
+      color: #5f6873;
+      font-weight: 400;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    .course-card {
+      min-height: 310px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      background:
+        linear-gradient(160deg, rgba(255,255,255,.95), rgba(235,241,246,.82));
+      border: 1px solid rgba(17,24,39,.06);
+      box-shadow: 0 22px 60px rgba(17,24,39,.1);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .course-card::after {
+      content: "";
+      position: absolute;
+      right: -3rem;
+      bottom: -3rem;
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,201,149,.42), transparent 62%);
+    }
+
+    .course-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 28px 70px rgba(17,24,39,.14);
+    }
+
+    .course-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(17,24,39,.07);
+      font-size: 1.8rem;
+      margin-bottom: 1.35rem;
+      box-shadow: 0 14px 35px rgba(17,24,39,.08);
+    }
+
+    .course-card h3 {
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.05;
+      letter-spacing: -.05em;
+      margin-bottom: .65rem;
+    }
+
+    .course-card p {
+      color: #5f6873;
+      line-height: 1.55;
+    }
+
+    .course-card a[role="button"] {
+      border-radius: 999px;
+      padding: .7rem .95rem;
+      font-size: .9rem;
+      background: #111827;
+      color: #fff;
+      border: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .promo {
+      position: relative;
+      overflow: hidden;
+      margin-top: clamp(3rem, 7vw, 5rem);
+      padding: clamp(1.4rem, 4vw, 3rem);
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(17,24,39,.92), rgba(45,52,60,.82)),
+        url("assets/premium-wave-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .promo::before {
+      content: "GROWTH";
+      position: absolute;
+      left: -1rem;
+      bottom: -2.6rem;
+      color: rgba(255,255,255,.08);
+      font-size: clamp(4.8rem, 14vw, 11rem);
+      font-weight: 900;
+      letter-spacing: -.08em;
+    }
+
+    .promo h2 {
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -.055em;
+    }
+
+    .promo p {
+      color: rgba(255,255,255,.78);
+      max-width: 720px;
+    }
+
+    .promo mark {
+      background: var(--accent);
+      color: #111827;
+      padding: .2rem .55rem;
+      border-radius: .5rem;
+      font-weight: 900;
+    }
+
+    .promo a[role="button"] {
+      background: #fff;
+      color: #111827;
+      border: 0;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .teacher-card,
+    .review-card {
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(17,24,39,.06);
+      box-shadow: 0 20px 58px rgba(17,24,39,.09);
+      backdrop-filter: blur(16px);
+    }
+
+    .teacher-card img {
+      border-radius: 22px;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      filter: grayscale(.18) saturate(.9);
+    }
+
+    .teacher-card h3,
+    .review-card h3 {
+      letter-spacing: -.04em;
+    }
+
+    .teacher-card p,
+    .review-card p,
+    .review-card small {
+      color: #5f6873;
+    }
+
+    .review-card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .subscribe-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(238,244,248,.94), rgba(255,255,255,.88)),
+        url("assets/premium-wave-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      color: #111827;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.95);
+    }
+
+    .subscribe-box h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -.055em;
+      color: #111827;
+    }
+
+    .subscribe-box h3 {
+      color: #5f6873;
+      font-weight: 400;
+    }
+
+    input {
+      border-radius: 999px !important;
+      background: rgba(255,255,255,.88) !important;
+      border: 1px solid rgba(17,24,39,.08) !important;
+    }
+
+    button {
+      border-radius: 999px;
+      background: #111827;
+      border: 0;
+      color: #fff;
+    }
+
+    footer {
+      padding: 2.5rem 0 5.2rem;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: #111827;
+    }
+
+    .chat-button {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 80;
+      border-radius: 999px;
+      background: #111827;
+      color: white;
+      border: 1px solid rgba(255,255,255,.4);
+      box-shadow: 0 20px 52px rgba(17,24,39,.28);
+      padding: .85rem 1.05rem;
+    }
+
+    @media (max-width: 900px) {
+      nav.container-fluid {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      nav.container-fluid > ul {
+        margin-bottom: .25rem;
+      }
+
+      nav.container-fluid > ul:last-child {
+        display: flex;
+        gap: .55rem;
+        overflow-x: auto;
+        padding-bottom: .2rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .mockup-screen {
+        min-height: 250px;
+      }
+
+      .stats {
+        margin-top: 1rem;
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        background: #f7fafc;
+      }
+
+      main.container {
+        padding-left: .7rem;
+        padding-right: .7rem;
+      }
+
+      nav a {
+        font-size: .82rem;
+      }
+
+      nav a[role="button"] {
+        padding: .58rem .82rem;
+      }
+
+      .hero {
+        padding-top: .75rem;
+      }
+
+      .hero-card {
+        border-radius: 24px;
+        padding: 1rem;
+      }
+
+      .hero-card::before {
+        top: -2.6rem;
+        left: -.4rem;
+        font-size: 6.2rem;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 18vw, 4.7rem);
+      }
+
+      .hero p {
+        font-size: .98rem;
+      }
+
+      .hero-actions a {
+        width: 100%;
+        text-align: center;
+        padding: .9rem 1rem;
+      }
+
+      .mockup {
+        border-radius: 24px;
+        padding: .65rem;
+      }
+
+      .mockup-screen {
+        border-radius: 20px;
+        min-height: 220px;
+      }
+
+      .mockup-title {
+        font-size: 1.65rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-box,
+      .course-card,
+      .teacher-card,
+      .review-card {
+        border-radius: 22px;
+      }
+
+      .course-card {
+        min-height: auto;
+      }
+
+      .promo {
+        border-radius: 24px;
+      }
+
+      .promo a[role="button"] {
+        width: 100%;
+        text-align: center;
+      }
+
+      .teacher-card img {
+        height: 190px;
+      }
+
+      .subscribe-box {
+        border-radius: 24px;
+      }
+
+      .subscribe-box form button {
+        width: 100%;
+      }
+
+      .chat-button {
+        left: .85rem;
+        right: .85rem;
+        bottom: .85rem;
+        text-align: center;
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <nav class="container-fluid">
-    <ul><li><strong>PatriciaSales</strong></li></ul>
     <ul>
-      <li><a href="#courses">โปรไฟล์</a></li>
-      <li><a href="#teachers">สินค้าและบริการ</a></li>
-      <li><a href="#reviews">ผลงาน</a></li>
-      <li><a href="#subscribe" role="button">ติดต่อทีมขาย</a></li>
+      <li><strong>PatriciaSales</strong></li>
+    </ul>
+    <ul>
+      <li><a href="#profile">โปรไฟล์</a></li>
+      <li><a href="#services">สินค้าและบริการ</a></li>
+      <li><a href="#works">ผลงาน</a></li>
+      <li><a href="#subscribe" role="button">ปรึกษาฟรี</a></li>
     </ul>
   </nav>
+
   <main class="container">
-    <section class="hero">
+
+    <section class="hero" id="profile">
       <div class="hero-card">
-        <section>
-          <span class="badge">Premium Sales Agency • Ads • Content</span>
-          <h1>Scale Your Course Business</h1>
-          <p>PatriciaSales ช่วยเจ้าของคอร์สและธุรกิจความรู้ วางระบบขายคอร์สออนไลน์ ตั้งแต่กลยุทธ์คอนเทนต์ ยิงแอด สร้าง Funnel ไปจนถึงทีมแชตและปิดการขาย</p>
-          <div class="hero-actions"><a href="#subscribe" role="button">ปรึกษาฟรี</a><a href="#teachers" role="button" class="secondary">ดูบริการ</a></div>
-        </section>
-        <div class="service-overlay">
-          <article class="overlay-card"><small>Service 01</small><h3>Course Sales</h3><p>วางระบบขายคอร์สออนไลน์ ตั้งแต่หน้าบ้านถึงทีมปิดการขาย</p><a href="#teachers" role="button">ดูบริการ →</a></article>
-          <article class="overlay-card"><small>Service 02</small><h3>Ads Management</h3><p>ยิงแอดเพื่อดึงลูกค้าที่สนใจจริง พร้อมวัดผลและปรับแคมเปญ</p><a href="#teachers" role="button">ดูบริการ →</a></article>
-          <article class="overlay-card"><small>Service 03</small><h3>Content Creation</h3><p>ทำคอนเทนต์ขายและคอนเทนต์สร้างความน่าเชื่อถือให้แบรนด์</p><a href="#teachers" role="button">ดูบริการ →</a></article>
+        <div class="hero-inner">
+          <section>
+            <span class="badge">Premium Sales Agency • Ads • Content</span>
+            <h1>Course Sales, Elevated.</h1>
+            <p>
+              PatriciaSales ช่วยเจ้าของคอร์สเปลี่ยนความรู้ให้กลายเป็นยอดขาย
+              ด้วยระบบคอนเทนต์ ยิงแอด Funnel และทีมเซลส์ที่ช่วยปิดการขายอย่างเป็นระบบ
+            </p>
+
+            <div class="hero-actions">
+              <a href="#subscribe" role="button">คุยแผนการขาย</a>
+              <a href="#services" role="button" class="secondary">ดูบริการ</a>
+            </div>
+          </section>
+
+          <section>
+            <div class="mockup">
+              <div class="mockup-screen">
+                <div class="mockup-top">
+                  <span>Landing Page</span>
+                  <span>Sales System</span>
+                  <span>2026</span>
+                </div>
+                <div class="mockup-title">
+                  Turn your <span>course</span> into a scalable sales machine.
+                </div>
+                <span class="mini-cta">Book Consultation</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="grid stats">
+          <div class="stat-box">
+            <h3>3 ระบบ</h3>
+            <small>คอนเทนต์ • แอด • เซลส์</small>
+          </div>
+          <div class="stat-box">
+            <h3>ครบจบ</h3>
+            <small>วางแผน ยิงแอด ทำคอนเทนต์ และปิดการขาย</small>
+          </div>
+          <div class="stat-box">
+            <h3>Mobile First</h3>
+            <small>ออกแบบ Funnel ให้เหมาะกับลูกค้าที่ใช้มือถือ</small>
+          </div>
         </div>
       </div>
-      <div class="grid stats">
-        <div class="stat-box"><h3>Full Funnel</h3><small>คอนเทนต์ → แอด → แชต → ปิดการขาย</small></div>
-        <div class="stat-box"><h3>Data Driven</h3><small>วัดผลทุกแคมเปญเพื่อปรับยอดขาย</small></div>
-        <div class="stat-box"><h3>Mobile First</h3><small>ออกแบบให้ลูกค้ากดทักง่ายบนมือถือ</small></div>
-      </div>
     </section>
-    <section id="courses">
-      <div class="section-title"><hgroup><h2>โปรไฟล์ PatriciaSales</h2><h3>ทีมขายและการตลาดสำหรับเจ้าของคอร์สที่อยากเพิ่มยอดแบบเป็นระบบ</h3></hgroup></div>
+
+    <section id="services">
+      <div class="section-title">
+        <p class="eyebrow">Services</p>
+        <hgroup>
+          <h2>ขายคอร์สให้ดูพรีเมียม และปิดการขายได้จริง</h2>
+          <h3>บริการสำหรับเจ้าของคอร์ส โค้ช ที่ปรึกษา และธุรกิจความรู้ที่ต้องการยอดขายเป็นระบบ</h3>
+        </hgroup>
+      </div>
+
       <div class="grid">
-        <article class="course-card"><div class="course-icon">🎯</div><h3>วางกลยุทธ์ขายคอร์ส</h3><p>ช่วยวิเคราะห์กลุ่มเป้าหมาย จุดขาย ข้อเสนอ และเส้นทางลูกค้าก่อนเริ่มยิงแอด</p><a href="#subscribe" role="button">คุยรายละเอียด</a></article>
-        <article class="course-card"><div class="course-icon">📣</div><h3>สร้างระบบหาลูกค้า</h3><p>ทำให้ลูกค้าเห็นแบรนด์ผ่านคอนเทนต์และโฆษณาที่ออกแบบมาเพื่อสร้างยอดขาย</p><a href="#subscribe" role="button">คุยรายละเอียด</a></article>
-        <article class="course-card"><div class="course-icon">💬</div><h3>เพิ่มโอกาสปิดการขาย</h3><p>ออกแบบข้อความขาย สคริปต์แชต และขั้นตอนติดตามลูกค้าให้ปิดง่ายขึ้น</p><a href="#subscribe" role="button">คุยรายละเอียด</a></article>
+        <article class="course-card">
+          <div class="course-icon">🎓</div>
+          <h3>ขายคอร์สออนไลน์</h3>
+          <p>วางข้อเสนอ ราคา Script และขั้นตอนปิดการขายให้ลูกค้าเข้าใจง่ายและตัดสินใจเร็วขึ้น</p>
+          <a href="#subscribe" role="button">ดูรายละเอียด</a>
+        </article>
+
+        <article class="course-card">
+          <div class="course-icon">📈</div>
+          <h3>บริการยิงแอด</h3>
+          <p>วางแคมเปญ โครงสร้าง Funnel และข้อความโฆษณาเพื่อดึงลูกค้าที่สนใจคอร์สเข้ามาคุยกับทีมขาย</p>
+          <a href="#subscribe" role="button">ดูรายละเอียด</a>
+        </article>
+
+        <article class="course-card">
+          <div class="course-icon">🎬</div>
+          <h3>ทำคอนเทนต์ให้</h3>
+          <p>ออกแบบไอเดียโพสต์ คลิปสั้น และคอนเทนต์ขายที่ช่วยสร้างความเชื่อมั่นก่อนลูกค้าทักแชต</p>
+          <a href="#subscribe" role="button">ดูรายละเอียด</a>
+        </article>
       </div>
     </section>
-    <section id="promo" class="promo"><div class="grid"><section><h2>เริ่มต้นวางระบบขายให้ดูแพงและน่าเชื่อถือ</h2><p>สำหรับเจ้าของคอร์สที่อยากได้ทีมช่วยดูแล <mark>คอนเทนต์ + ยิงแอด + ปิดการขาย</mark> ในที่เดียว</p></section><section><a href="#subscribe" role="button" class="contrast">จองเวลาปรึกษา</a></section></div></section>
-    <section id="teachers">
-      <div class="section-title"><hgroup><h2>สินค้าและบริการ</h2><h3>เลือกบริการตามจุดที่ธุรกิจของคุณต้องการเร่งยอดขาย</h3></hgroup></div>
+
+    <section id="promo" class="promo">
       <div class="grid">
-        <article class="teacher-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="แดชบอร์ดวิเคราะห์ผลลัพธ์การตลาดออนไลน์"><h3>บริการยิงแอด</h3><p>วางแคมเปญ เขียนมุมโฆษณา ทดสอบกลุ่มเป้าหมาย และปรับผลลัพธ์เพื่อเพิ่มยอดทัก</p></article>
-        <article class="teacher-card"><img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1000&auto=format&fit=crop" alt="ทีมกำลังวางแผนคอนเทนต์บนโต๊ะทำงาน"><h3>ทำคอนเทนต์ให้</h3><p>ผลิตคอนเทนต์สำหรับสร้างความน่าเชื่อถือ ดึงความสนใจ และพาลูกค้าเข้าสู่การขาย</p></article>
-        <article class="teacher-card"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" alt="ทีมประชุมวางแผนการขาย"><h3>ระบบขายคอร์ส</h3><p>ช่วยจัดแพ็กเกจ ข้อเสนอ หน้าโปรไฟล์ สคริปต์ตอบแชต และระบบติดตามลูกค้า</p></article>
+        <section>
+          <h2>Sales Funnel Audit</h2>
+          <p>
+            รับการประเมินหน้าเพจ คอนเทนต์ แอด และจุดปิดการขายเบื้องต้น
+            เพื่อหาโอกาสเพิ่มยอดขายคอร์สของคุณ ใช้โค้ด <mark>SALES2026</mark>
+          </p>
+        </section>
+        <section>
+          <a href="#subscribe" role="button" class="contrast">ขอประเมินฟรี</a>
+        </section>
       </div>
     </section>
-    <section id="reviews">
-      <div class="section-title"><hgroup><h2>ผลงานและแนวทางทำงาน</h2><h3>เน้นภาพลักษณ์น่าเชื่อถือและระบบขายที่วัดผลได้</h3></hgroup></div>
+
+    <section id="team">
+      <div class="section-title">
+        <p class="eyebrow">Process</p>
+        <hgroup>
+          <h2>จากคนเห็นคอนเทนต์ สู่ลูกค้าที่พร้อมซื้อ</h2>
+          <h3>เราออกแบบเส้นทางลูกค้าให้ต่อเนื่อง ตั้งแต่ดึงความสนใจจนถึงการปิดการขาย</h3>
+        </hgroup>
+      </div>
+
       <div class="grid">
-        <article class="review-card"><h3>“จากคอร์สดีแต่ขายไม่เป็นระบบ”</h3><p>ปรับข้อเสนอและเส้นทางลูกค้าให้ชัดขึ้น ทำให้แอดและแชตทำงานต่อกันได้ดีขึ้น</p><small>— เจ้าของคอร์สออนไลน์</small></article>
-        <article class="review-card"><h3>“คอนเทนต์ดูน่าเชื่อถือขึ้น”</h3><p>ออกแบบคอนเทนต์ให้ตอบข้อสงสัยลูกค้าและช่วยให้ทีมขายปิดง่ายขึ้น</p><small>— ธุรกิจการศึกษา</small></article>
-        <article class="review-card"><h3>“เห็นตัวเลขและปรับงานได้เร็ว”</h3><p>ติดตามผลจากแคมเปญและนำข้อมูลมาปรับข้อความขาย กลุ่มเป้าหมาย และข้อเสนอ</p><small>— ทีมขายคอร์ส</small></article>
+        <article class="teacher-card">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1000&auto=format&fit=crop"
+               alt="ทีมงานกำลังวางแผนการขายและการตลาด">
+          <h3>Strategy & Offer</h3>
+          <p>วิเคราะห์กลุ่มเป้าหมาย จุดขาย และข้อเสนอของคอร์สให้ชัดก่อนเริ่มยิงแอด</p>
+        </article>
+
+        <article class="teacher-card">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1000&auto=format&fit=crop"
+               alt="ทีมการตลาดกำลังดูข้อมูลแคมเปญโฆษณา">
+          <h3>Ads & Content</h3>
+          <p>สร้างคอนเทนต์และแคมเปญโฆษณาที่พาคนสนใจเข้าสู่ช่องทางปิดการขาย</p>
+        </article>
+
+        <article class="teacher-card">
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1000&auto=format&fit=crop"
+               alt="ทีมเซลส์กำลังประชุมและติดตามผลลัพธ์">
+          <h3>Sales & Follow-up</h3>
+          <p>ช่วยวางสคริปต์ ติดตามลูกค้า และวัดผลเพื่อปรับระบบขายให้ดีขึ้นเรื่อย ๆ</p>
+        </article>
       </div>
     </section>
+
+    <section id="works">
+      <div class="section-title">
+        <p class="eyebrow">Results</p>
+        <hgroup>
+          <h2>ผลงานที่ลูกค้าเข้าใจง่าย และนำเสนอดูแพง</h2>
+          <h3>ออกแบบภาพลักษณ์และระบบขายให้เจ้าของคอร์สสื่อสารกับลูกค้าได้มืออาชีพขึ้น</h3>
+        </hgroup>
+      </div>
+
+      <div class="grid">
+        <article class="review-card">
+          <h3>“คอนเทนต์ดูน่าเชื่อถือขึ้น ลูกค้าทักมาถามรายละเอียดมากขึ้น”</h3>
+          <p>ช่วยปรับข้อความขายและโครงคอนเทนต์ให้เหมาะกับกลุ่มเป้าหมาย</p>
+          <small>— เจ้าของคอร์สออนไลน์</small>
+        </article>
+
+        <article class="review-card">
+          <h3>“แอดและแชตเป็นระบบขึ้น ไม่ปล่อยลูกค้าหลุดง่ายเหมือนเดิม”</h3>
+          <p>วางขั้นตอนตั้งแต่แอดเข้าแชต ไปจนถึงการติดตามลูกค้าก่อนตัดสินใจ</p>
+          <small>— ธุรกิจโค้ชชิ่ง</small>
+        </article>
+
+        <article class="review-card">
+          <h3>“หน้าเสนอขายดูพรีเมียม เหมาะใช้พรีเซนต์ลูกค้ามากขึ้น”</h3>
+          <p>ปรับดีไซน์และข้อความให้สะท้อนความเป็นมืออาชีพของแบรนด์</p>
+          <small>— ทีมขายคอร์ส</small>
+        </article>
+      </div>
+    </section>
+
   </main>
-  <section id="subscribe" aria-label="Subscribe example"><div class="container"><article class="subscribe-box"><hgroup><h2>จองปรึกษาโปรเจกต์ของคุณ</h2><h3>กรอกข้อมูลไว้ แล้วทีม PatriciaSales จะติดต่อกลับเพื่อประเมินแนวทางขายคอร์ส ยิงแอด และคอนเทนต์</h3></hgroup><form class="grid"><input type="text" id="firstname" name="firstname" placeholder="ชื่อ / แบรนด์" aria-label="ชื่อ / แบรนด์" required><input type="email" id="email" name="email" placeholder="อีเมล หรือ ช่องทางติดต่อ" aria-label="อีเมล หรือ ช่องทางติดต่อ" required><button type="submit" onclick="event.preventDefault()">ส่งข้อมูล</button></form></article></div></section>
-  <footer class="container"><small><a href="#courses">โปรไฟล์</a> • <a href="#teachers">บริการ</a> • <a href="#subscribe">ติดต่อทีมขาย</a><br>© 2026 PatriciaSales. Sales Agency for Course, Ads & Content</small></footer>
+
+  <section id="subscribe" aria-label="Subscribe example">
+    <div class="container">
+      <article class="subscribe-box">
+        <hgroup>
+          <h2>เริ่มวางระบบขายคอร์สของคุณ</h2>
+          <h3>กรอกข้อมูลเพื่อให้ทีม PatriciaSales ติดต่อกลับ พร้อมประเมินแนวทางยิงแอด คอนเทนต์ และปิดการขาย</h3>
+        </hgroup>
+
+        <form class="grid">
+          <input type="text" id="firstname" name="firstname" placeholder="ชื่อของคุณ" aria-label="ชื่อของคุณ" required>
+          <input type="email" id="email" name="email" placeholder="อีเมลหรือช่องทางติดต่อ" aria-label="อีเมลหรือช่องทางติดต่อ" required>
+          <button type="submit" onclick="event.preventDefault()">ขอคำปรึกษา</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <footer class="container">
+    <small>
+      <a href="#profile">โปรไฟล์</a> •
+      <a href="#services">บริการ</a> •
+      <a href="#works">ผลงาน</a>
+      <br>
+      © 2026 PatriciaSales. Sales Agency for Course, Ads & Content.
+    </small>
+  </footer>
+
   <a class="chat-button" href="#subscribe" role="button">💬 คุยกับทีมขาย</a>
+
 </body>
 </html>
