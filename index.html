@@ -286,6 +286,35 @@
       font-size: .78rem;
     }
 
+
+    .contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1.35rem;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .62rem .9rem;
+      border-radius: 999px;
+      color: #111827;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid rgba(17, 24, 39, .08);
+      box-shadow: 0 14px 34px rgba(17, 24, 39, .08);
+      font-size: .92rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .contact-pill:hover {
+      transform: translateY(-1px);
+      color: #111827;
+      background: rgba(255, 255, 255, .96);
+    }
+
     .stats {
       position: relative;
       z-index: 3;
@@ -594,7 +623,36 @@
         min-height: 250px;
       }
 
-      .stats {
+  
+    .contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1.35rem;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .62rem .9rem;
+      border-radius: 999px;
+      color: #111827;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid rgba(17, 24, 39, .08);
+      box-shadow: 0 14px 34px rgba(17, 24, 39, .08);
+      font-size: .92rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .contact-pill:hover {
+      transform: translateY(-1px);
+      color: #111827;
+      background: rgba(255, 255, 255, .96);
+    }
+
+    .stats {
         margin-top: 1rem;
         padding: 0;
       }
@@ -745,6 +803,7 @@
       <li><a href="#profile">โปรไฟล์</a></li>
       <li><a href="#services">สินค้าและบริการ</a></li>
       <li><a href="#works">ผลงาน</a></li>
+      <li><a href="#contact">ติดต่อ</a></li>
       <li><a href="#subscribe" role="button">ปรึกษาฟรี</a></li>
     </ul>
   </nav>
@@ -765,6 +824,12 @@
             <div class="hero-actions">
               <a href="#subscribe" role="button">คุยแผนการขาย</a>
               <a href="#services" role="button" class="secondary">ดูบริการ</a>
+            </div>
+
+            <div class="contact-strip" id="contact">
+              <a class="contact-pill" href="tel:0614053618">📞 061-405-3618</a>
+              <a class="contact-pill" href="https://line.me/ti/p/~pawarisa.r" target="_blank" rel="noopener">LINE: pawarisa.r</a>
+              <a class="contact-pill" href="mailto:pawarisa.pxckiiez@gmail.com">✉️ pawarisa.pxckiiez@gmail.com</a>
             </div>
           </section>
 
@@ -923,6 +988,12 @@
           <h3>กรอกข้อมูลเพื่อให้ทีม PatriciaSales ติดต่อกลับ พร้อมประเมินแนวทางยิงแอด คอนเทนต์ และปิดการขาย</h3>
         </hgroup>
 
+        <div class="contact-strip" style="margin-bottom: 1.25rem;">
+          <a class="contact-pill" href="tel:0614053618">📞 061-405-3618</a>
+          <a class="contact-pill" href="https://line.me/ti/p/~pawarisa.r" target="_blank" rel="noopener">LINE: pawarisa.r</a>
+          <a class="contact-pill" href="mailto:pawarisa.pxckiiez@gmail.com">✉️ pawarisa.pxckiiez@gmail.com</a>
+        </div>
+
         <form class="grid">
           <input type="text" id="firstname" name="firstname" placeholder="ชื่อของคุณ" aria-label="ชื่อของคุณ" required>
           <input type="email" id="email" name="email" placeholder="อีเมลหรือช่องทางติดต่อ" aria-label="อีเมลหรือช่องทางติดต่อ" required>
@@ -936,9 +1007,11 @@
     <small>
       <a href="#profile">โปรไฟล์</a> •
       <a href="#services">บริการ</a> •
-      <a href="#works">ผลงาน</a>
+      <a href="#works">ผลงาน</a> •
+      <a href="tel:0614053618">061-405-3618</a> •
+      <a href="mailto:pawarisa.pxckiiez@gmail.com">Email</a>
       <br>
-      © 2026 PatriciaSales. Sales Agency for Course, Ads & Content.
+      LINE: pawarisa.r · © 2026 PatriciaSales. Sales Agency for Course, Ads & Content.
     </small>
   </footer>
 
@@ -974,7 +1047,7 @@
       </form>
 
       <div class="chat-lead-note">
-        หมายเหตุ: แชตนี้เป็นตัวช่วยตอบเบื้องต้นในหน้าเว็บ หากต้องการให้ทีมติดต่อกลับ ให้ฝากชื่อและช่องทางติดต่อไว้ในแชตได้เลย
+        ติดต่อทีม PatriciaSales ได้ที่ โทร 061-405-3618 · LINE: pawarisa.r · Email: pawarisa.pxckiiez@gmail.com
       </div>
     </div>
 
@@ -1027,7 +1100,7 @@
 
       if (matched) return matched.reply;
 
-      return 'รับทราบครับ ทีม PatriciaSales ช่วยดูเรื่องนี้ได้ เบื้องต้นฝากชื่อ เบอร์/ไลน์ และเป้าหมายยอดขายไว้ได้เลยครับ แล้วทีมงานจะติดต่อกลับ';
+      return 'รับทราบครับ ทีม PatriciaSales ช่วยดูเรื่องนี้ได้ ติดต่อได้ที่ โทร 061-405-3618, LINE: pawarisa.r หรือ Email: pawarisa.pxckiiez@gmail.com ครับ';
     }
 
     function sendMessage(text) {
