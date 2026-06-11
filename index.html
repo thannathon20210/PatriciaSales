@@ -592,6 +592,40 @@
       padding: .85rem 1.05rem;
     }
 
+
+    .seller-chat-button {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      padding: .95rem 1.2rem;
+      border-radius: 999px;
+      background: #111827;
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: 0 22px 55px rgba(17, 24, 39, .28);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .seller-chat-button:hover {
+      color: #ffffff;
+      background: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 26px 65px rgba(17, 24, 39, .34);
+    }
+
+    .chat-widget,
+    .chat-panel,
+    .chat-toggle {
+      display: none !important;
+    }
+
     @media (max-width: 900px) {
       nav.container-fluid {
         display: block;
@@ -989,6 +1023,19 @@
     }
 
 
+
+    @media (max-width: 640px) {
+      .seller-chat-button {
+        right: 14px;
+        bottom: 14px;
+        left: auto;
+        width: auto;
+        max-width: calc(100vw - 28px);
+        padding: .9rem 1rem;
+        font-size: .92rem;
+      }
+    }
+
   </style>
 </head>
 
@@ -1301,48 +1348,6 @@
       </form>
     </article>
   </div>
-
-  <div class="chat-widget" aria-live="polite">
-    <div class="chat-panel" id="chatPanel" aria-label="กล่องแชต PatriciaSales">
-      <div class="chat-header">
-        <div>
-          <strong>PatriciaSales Assistant</strong>
-          <small>คุยเรื่องขายคอร์ส ยิงแอด และคอนเทนต์</small>
-        </div>
-        <button class="chat-close" id="chatClose" aria-label="ปิดแชต">×</button>
-      </div>
-
-      <div class="chat-messages" id="chatMessages">
-        <div class="chat-message bot">
-          สวัสดีครับ 👋 สนใจให้ PatriciaSales ช่วยด้านไหนเป็นพิเศษ?
-        </div>
-        <div class="chat-message bot">
-          เลือกหัวข้อด้านล่าง หรือพิมพ์คำถามได้เลยครับ
-        </div>
-      </div>
-
-      <div class="quick-replies">
-        <button type="button" data-reply="อยากขายคอร์สออนไลน์">ขายคอร์ส</button>
-        <button type="button" data-reply="อยากให้ช่วยยิงแอด">ยิงแอด</button>
-        <button type="button" data-reply="อยากให้ทำคอนเทนต์">ทำคอนเทนต์</button>
-        <button type="button" data-reply="ขอแพ็กเกจราคา">แพ็กเกจราคา</button>
-      </div>
-
-      <form class="chat-form" id="chatForm">
-        <input id="chatInput" type="text" placeholder="พิมพ์ข้อความ..." aria-label="พิมพ์ข้อความแชต" autocomplete="off">
-        <button type="submit">ส่ง</button>
-      </form>
-
-      <div class="chat-lead-note">
-        ติดต่อทีม PatriciaSales ได้ที่ โทร 061-405-3618 · LINE: pawarisa.r · Email: pawarisa.pxckiiez@gmail.com
-      </div>
-    </div>
-
-    <button class="chat-toggle" id="chatToggle" type="button">
-      💬 ทักคุยในเว็บ
-    </button>
-  </div>
-
   <script>
     /*
       วิธีใช้งาน Google Sheet:
@@ -1578,85 +1583,21 @@
 
     renderMemberStatus();
 
-
-    const chatToggle = document.getElementById('chatToggle');
-    const chatClose = document.getElementById('chatClose');
-    const chatPanel = document.getElementById('chatPanel');
-    const chatMessages = document.getElementById('chatMessages');
-    const chatForm = document.getElementById('chatForm');
-    const chatInput = document.getElementById('chatInput');
-    const quickReplies = document.querySelectorAll('[data-reply]');
-
-    const botReplies = [
-      {
-        keywords: ['ขายคอร์ส', 'คอร์ส', 'ปิดการขาย'],
-        reply: 'ได้ครับ เราช่วยวางระบบขายคอร์สตั้งแต่คอนเทนต์ ยิงแอด แชตลูกค้า ไปจนถึงการปิดการขาย เหมาะกับเจ้าของคอร์สที่อยากเพิ่มยอดขายแบบเป็นระบบ'
-      },
-      {
-        keywords: ['ยิงแอด', 'แอด', 'โฆษณา'],
-        reply: 'บริการยิงแอดจะช่วยวางแคมเปญ หา Audience ทำข้อความโฆษณา และปรับแอดเพื่อเพิ่มจำนวนแชต/ลีดสำหรับขายคอร์สครับ'
-      },
-      {
-        keywords: ['คอนเทนต์', 'content', 'ทำคลิป'],
-        reply: 'เราช่วยคิดมุมคอนเทนต์ เขียนสคริปต์ วางโพสต์ และทำคอนเทนต์ให้เข้ากับ Funnel การขาย เพื่อให้คนเห็นแล้วอยากทักเข้ามาครับ'
-      },
-      {
-        keywords: ['ราคา', 'แพ็กเกจ', 'package'],
-        reply: 'แพ็กเกจสามารถจัดตามเป้าหมายได้ เช่น ทำคอนเทนต์อย่างเดียว / ยิงแอดพร้อมคอนเทนต์ / วางระบบขายพร้อมทีมเซลส์ ฝากช่องทางติดต่อไว้ได้เลยครับ'
-      }
-    ];
-
-    function addMessage(text, sender = 'user') {
-      const bubble = document.createElement('div');
-      bubble.className = `chat-message ${sender}`;
-      bubble.textContent = text;
-      chatMessages.appendChild(bubble);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    function getBotReply(text) {
-      const lowerText = text.toLowerCase();
-      const matched = botReplies.find(item =>
-        item.keywords.some(keyword => lowerText.includes(keyword.toLowerCase()))
-      );
-
-      if (matched) return matched.reply;
-
-      return 'รับทราบครับ ทีม PatriciaSales ช่วยดูเรื่องนี้ได้ ติดต่อได้ที่ โทร 061-405-3618, LINE: pawarisa.r หรือ Email: pawarisa.pxckiiez@gmail.com ครับ';
-    }
-
-    function sendMessage(text) {
-      if (!text.trim()) return;
-      addMessage(text, 'user');
-      chatInput.value = '';
-
-      setTimeout(() => {
-        addMessage(getBotReply(text), 'bot');
-      }, 450);
-    }
-
-    chatToggle.addEventListener('click', () => {
-      chatPanel.classList.toggle('is-open');
-      if (chatPanel.classList.contains('is-open')) {
-        setTimeout(() => chatInput.focus(), 200);
-      }
-    });
-
-    chatClose.addEventListener('click', () => {
-      chatPanel.classList.remove('is-open');
-    });
-
-    chatForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      sendMessage(chatInput.value);
-    });
-
-    quickReplies.forEach(button => {
-      button.addEventListener('click', () => {
-        sendMessage(button.dataset.reply);
-      });
-    });
   </script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6a2a53266dd5c81c3273540d/1jqql9juq';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
 
 </body>
 </html>
