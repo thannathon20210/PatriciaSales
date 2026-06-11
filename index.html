@@ -790,6 +790,205 @@
       }
     }
 
+    /* Member system */
+    .member-section {
+      margin: 4rem 0 2rem;
+    }
+
+    .member-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: clamp(1.4rem, 4vw, 2.4rem);
+      background:
+        linear-gradient(135deg, rgba(17,24,39,.96), rgba(45,52,64,.92)),
+        radial-gradient(circle at top right, rgba(217,201,149,.42), transparent 34%);
+      color: #fff;
+      box-shadow: 0 28px 80px rgba(17,24,39,.18);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .member-card h2,
+    .member-card h3,
+    .member-card p {
+      color: #fff;
+    }
+
+    .member-card p {
+      opacity: .82;
+    }
+
+    .member-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .85rem;
+      margin: 1.25rem 0 1.5rem;
+    }
+
+    .member-benefit {
+      padding: 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .member-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      align-items: center;
+    }
+
+    .member-actions button,
+    .member-actions a {
+      border-radius: 999px;
+    }
+
+    .member-status {
+      margin-top: 1rem;
+      padding: .9rem 1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: .95rem;
+      display: none;
+    }
+
+    .member-status.is-active {
+      display: block;
+    }
+
+    .auth-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 1rem;
+      background: rgba(10, 14, 20, .58);
+      backdrop-filter: blur(12px);
+    }
+
+    .auth-modal.is-open {
+      display: grid;
+    }
+
+    .auth-card {
+      width: min(520px, 100%);
+      border-radius: 30px;
+      background: rgba(255,255,255,.96);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 34px 90px rgba(0,0,0,.24);
+      padding: 1.4rem;
+    }
+
+    .auth-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .auth-head h2 {
+      margin-bottom: .2rem;
+      letter-spacing: -.04em;
+    }
+
+    .auth-close {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      padding: 0;
+      line-height: 1;
+      background: #111827;
+      color: #fff;
+      border: 0;
+    }
+
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+      padding: .35rem;
+      background: #eef2f7;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .auth-tab {
+      border-radius: 999px;
+      border: 0;
+      background: transparent;
+      color: #374151;
+      padding: .78rem;
+    }
+
+    .auth-tab.is-active {
+      background: #111827;
+      color: #fff;
+    }
+
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.is-active {
+      display: block;
+    }
+
+    .auth-form input {
+      margin-bottom: .75rem;
+      border-radius: 16px;
+    }
+
+    .auth-note {
+      margin-top: .85rem;
+      color: #64748b;
+      font-size: .86rem;
+      line-height: 1.55;
+    }
+
+    .auth-alert {
+      display: none;
+      margin: .8rem 0;
+      padding: .85rem 1rem;
+      border-radius: 16px;
+      background: #f1f5f9;
+      color: #111827;
+      font-size: .92rem;
+    }
+
+    .auth-alert.is-active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .member-section {
+        margin: 2.2rem 0 1rem;
+      }
+
+      .member-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .member-actions {
+        display: grid;
+      }
+
+      .member-actions button,
+      .member-actions a {
+        width: 100%;
+      }
+
+      .auth-card {
+        border-radius: 24px;
+        padding: 1rem;
+      }
+    }
+
+
   </style>
 </head>
 
@@ -804,6 +1003,7 @@
       <li><a href="#services">สินค้าและบริการ</a></li>
       <li><a href="#works">ผลงาน</a></li>
       <li><a href="#contact">ติดต่อ</a></li>
+      <li><a href="#member">สมาชิก</a></li>
       <li><a href="#subscribe" role="button">ปรึกษาฟรี</a></li>
     </ul>
   </nav>
@@ -824,6 +1024,7 @@
             <div class="hero-actions">
               <a href="#subscribe" role="button">คุยแผนการขาย</a>
               <a href="#services" role="button" class="secondary">ดูบริการ</a>
+              <button type="button" class="secondary" data-open-auth="register">สมัครสมาชิก</button>
             </div>
 
             <div class="contact-strip" id="contact">
@@ -865,6 +1066,50 @@
           </div>
         </div>
       </div>
+    </section>
+
+
+    <section id="member" class="member-section">
+      <article class="member-card">
+        <div class="grid">
+          <section>
+            <p class="eyebrow">Member Area</p>
+            <hgroup>
+              <h2>ระบบสมาชิก PatriciaSales</h2>
+              <h3>ให้ลูกค้าสมัครเพื่อรับแผนขายคอร์ส แพ็กเกจ และอัปเดตโปรโมชั่น</h3>
+            </hgroup>
+            <p>
+              เหมาะสำหรับใช้เก็บรายชื่อคนสนใจบริการยิงแอด ทำคอนเทนต์ และวางระบบขายคอร์ส
+              พร้อมสร้างความน่าเชื่อถือให้เว็บดูเป็นระบบมากขึ้น
+            </p>
+          </section>
+
+          <section>
+            <div class="member-benefits">
+              <div class="member-benefit">
+                <strong>📋 Lead Profile</strong>
+                <small>เก็บชื่อ อีเมล เบอร์ และ LINE</small>
+              </div>
+              <div class="member-benefit">
+                <strong>🎯 Sales Plan</strong>
+                <small>คัดกรองลูกค้าที่สนใจขายคอร์ส</small>
+              </div>
+              <div class="member-benefit">
+                <strong>💬 Follow Up</strong>
+                <small>ใช้ข้อมูลติดต่อกลับเพื่อปิดการขาย</small>
+              </div>
+            </div>
+
+            <div class="member-actions">
+              <button type="button" data-open-auth="register">สมัครสมาชิก</button>
+              <button type="button" class="secondary" data-open-auth="login">เข้าสู่ระบบ</button>
+              <a href="https://line.me/ti/p/~pawarisa.r" target="_blank" rel="noopener" role="button" class="contrast">ทัก LINE</a>
+            </div>
+
+            <div class="member-status" id="memberStatus"></div>
+          </section>
+        </div>
+      </article>
     </section>
 
     <section id="services">
@@ -994,11 +1239,12 @@
           <a class="contact-pill" href="mailto:pawarisa.pxckiiez@gmail.com">✉️ pawarisa.pxckiiez@gmail.com</a>
         </div>
 
-        <form class="grid">
+        <form class="grid" id="leadForm">
           <input type="text" id="firstname" name="firstname" placeholder="ชื่อของคุณ" aria-label="ชื่อของคุณ" required>
-          <input type="email" id="email" name="email" placeholder="อีเมลหรือช่องทางติดต่อ" aria-label="อีเมลหรือช่องทางติดต่อ" required>
-          <button type="submit" onclick="event.preventDefault()">ขอคำปรึกษา</button>
+          <input type="text" id="contact" name="contact" placeholder="เบอร์ / LINE / อีเมล" aria-label="เบอร์ LINE หรืออีเมล" required>
+          <button type="submit">ขอคำปรึกษา</button>
         </form>
+        <p class="auth-note" id="leadStatus" style="color: rgba(255,255,255,.8); margin-top: .9rem;"></p>
       </article>
     </div>
   </section>
@@ -1014,6 +1260,47 @@
       LINE: pawarisa.r · © 2026 PatriciaSales. Sales Agency for Course, Ads & Content.
     </small>
   </footer>
+
+
+  <div class="auth-modal" id="authModal" aria-hidden="true">
+    <article class="auth-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <div class="auth-head">
+        <div>
+          <h2 id="authTitle">PatriciaSales Member</h2>
+          <small>สมัครสมาชิกหรือเข้าสู่ระบบเพื่อรับข้อมูลบริการ</small>
+        </div>
+        <button type="button" class="auth-close" id="authClose" aria-label="ปิดหน้าต่าง">×</button>
+      </div>
+
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab is-active" data-auth-tab="register">สมัครสมาชิก</button>
+        <button type="button" class="auth-tab" data-auth-tab="login">เข้าสู่ระบบ</button>
+      </div>
+
+      <div class="auth-alert" id="authAlert"></div>
+
+      <form class="auth-form is-active" id="registerForm">
+        <input type="text" id="regName" placeholder="ชื่อ-นามสกุล" aria-label="ชื่อ-นามสกุล" required>
+        <input type="tel" id="regPhone" placeholder="เบอร์โทร เช่น 0614053618" aria-label="เบอร์โทร" required>
+        <input type="text" id="regLine" placeholder="LINE ID" aria-label="LINE ID" required>
+        <input type="email" id="regEmail" placeholder="อีเมล" aria-label="อีเมล" required>
+        <input type="password" id="regPassword" placeholder="รหัสผ่านอย่างน้อย 6 ตัว" aria-label="รหัสผ่าน" minlength="6" required>
+        <button type="submit">สร้างบัญชีสมาชิก</button>
+        <p class="auth-note">
+          ข้อมูลสมาชิกจะส่งเข้า Google Sheet หลังตั้งค่า Web App URL แล้ว และยังบันทึกในเครื่องผู้ใช้เพื่อใช้ล็อกอินเดโมบนหน้าเว็บ
+        </p>
+      </form>
+
+      <form class="auth-form" id="loginForm">
+        <input type="email" id="loginEmail" placeholder="อีเมล" aria-label="อีเมล" required>
+        <input type="password" id="loginPassword" placeholder="รหัสผ่าน" aria-label="รหัสผ่าน" required>
+        <button type="submit">เข้าสู่ระบบ</button>
+        <p class="auth-note">
+          หมายเหตุ: ระบบนี้ไม่ส่งรหัสผ่านเข้า Google Sheet เพื่อความปลอดภัย การล็อกอินบนหน้าเว็บนี้ยังเป็นเดโมด้วย LocalStorage
+        </p>
+      </form>
+    </article>
+  </div>
 
   <div class="chat-widget" aria-live="polite">
     <div class="chat-panel" id="chatPanel" aria-label="กล่องแชต PatriciaSales">
@@ -1057,6 +1344,241 @@
   </div>
 
   <script>
+    /*
+      วิธีใช้งาน Google Sheet:
+      1) สร้าง Google Sheet
+      2) ไปที่ Extensions > Apps Script
+      3) วางโค้ดจากไฟล์ google-apps-script.gs
+      4) Deploy เป็น Web app แล้วคัดลอก URL มาใส่ตรงนี้
+    */
+    const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwfrfjIN9WbT059q7StPudl__ia6JNS03KJIljV0W8T_V3MQdZE21K0RqyZvxUfwio-9Q/exec";
+
+    async function submitToGoogleSheet(payload) {
+      if (!GOOGLE_SHEET_WEB_APP_URL || GOOGLE_SHEET_WEB_APP_URL.includes("PASTE_YOUR")) {
+        return { ok: false, configured: false };
+      }
+
+      try {
+        await fetch(GOOGLE_SHEET_WEB_APP_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify({
+            ...payload,
+            page: window.location.href,
+            userAgent: navigator.userAgent,
+            submittedAt: new Date().toISOString()
+          })
+        });
+
+        return { ok: true };
+      } catch (error) {
+        console.error("Google Sheet submit error:", error);
+        return { ok: false, configured: true, error };
+      }
+    }
+
+
+    const authModal = document.getElementById('authModal');
+    const authClose = document.getElementById('authClose');
+    const authTabs = document.querySelectorAll('[data-auth-tab]');
+    const authOpeners = document.querySelectorAll('[data-open-auth]');
+    const registerForm = document.getElementById('registerForm');
+    const loginForm = document.getElementById('loginForm');
+    const authAlert = document.getElementById('authAlert');
+    const memberStatus = document.getElementById('memberStatus');
+    const leadForm = document.getElementById('leadForm');
+    const leadStatus = document.getElementById('leadStatus');
+
+    function showAuthAlert(message) {
+      authAlert.textContent = message;
+      authAlert.classList.add('is-active');
+    }
+
+    function switchAuthTab(tab) {
+      authTabs.forEach(button => {
+        button.classList.toggle('is-active', button.dataset.authTab === tab);
+      });
+
+      registerForm.classList.toggle('is-active', tab === 'register');
+      loginForm.classList.toggle('is-active', tab === 'login');
+      authAlert.classList.remove('is-active');
+    }
+
+    function openAuth(tab = 'register') {
+      switchAuthTab(tab);
+      authModal.classList.add('is-open');
+      authModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeAuth() {
+      authModal.classList.remove('is-open');
+      authModal.setAttribute('aria-hidden', 'true');
+    }
+
+    function getMembers() {
+      return JSON.parse(localStorage.getItem('patriciaMembers') || '[]');
+    }
+
+    function saveMembers(members) {
+      localStorage.setItem('patriciaMembers', JSON.stringify(members));
+    }
+
+    function setCurrentMember(member) {
+      localStorage.setItem('patriciaCurrentMember', JSON.stringify(member));
+      renderMemberStatus();
+    }
+
+    function getCurrentMember() {
+      return JSON.parse(localStorage.getItem('patriciaCurrentMember') || 'null');
+    }
+
+    function logoutMember() {
+      localStorage.removeItem('patriciaCurrentMember');
+      renderMemberStatus();
+    }
+
+    function renderMemberStatus() {
+      const member = getCurrentMember();
+
+      if (!member) {
+        memberStatus.classList.remove('is-active');
+        memberStatus.innerHTML = '';
+        return;
+      }
+
+      memberStatus.classList.add('is-active');
+      memberStatus.innerHTML = `
+        ✅ เข้าสู่ระบบแล้ว: <strong>${member.name}</strong><br>
+        Email: ${member.email} · LINE: ${member.line}
+        <br><button type="button" class="secondary" id="logoutMember" style="margin-top:.75rem;">ออกจากระบบ</button>
+      `;
+
+      const logoutButton = document.getElementById('logoutMember');
+      if (logoutButton) logoutButton.addEventListener('click', logoutMember);
+    }
+
+    authOpeners.forEach(button => {
+      button.addEventListener('click', () => openAuth(button.dataset.openAuth || 'register'));
+    });
+
+    authTabs.forEach(button => {
+      button.addEventListener('click', () => switchAuthTab(button.dataset.authTab));
+    });
+
+    authClose.addEventListener('click', closeAuth);
+
+    authModal.addEventListener('click', (event) => {
+      if (event.target === authModal) closeAuth();
+    });
+
+    registerForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const member = {
+        name: document.getElementById('regName').value.trim(),
+        phone: document.getElementById('regPhone').value.trim(),
+        line: document.getElementById('regLine').value.trim(),
+        email: document.getElementById('regEmail').value.trim().toLowerCase(),
+        password: document.getElementById('regPassword').value,
+        createdAt: new Date().toISOString()
+      };
+
+      if (!member.name || !member.phone || !member.line || !member.email || member.password.length < 6) {
+        showAuthAlert('กรุณากรอกข้อมูลให้ครบ และตั้งรหัสผ่านอย่างน้อย 6 ตัว');
+        return;
+      }
+
+      const members = getMembers();
+
+      if (members.some(item => item.email === member.email)) {
+        showAuthAlert('อีเมลนี้สมัครสมาชิกไว้แล้ว ลองเข้าสู่ระบบได้เลย');
+        switchAuthTab('login');
+        return;
+      }
+
+      showAuthAlert('กำลังบันทึกข้อมูลสมาชิก...');
+
+      const sheetResult = await submitToGoogleSheet({
+        type: 'member_register',
+        name: member.name,
+        phone: member.phone,
+        line: member.line,
+        email: member.email,
+        note: 'สมัครสมาชิก PatriciaSales'
+      });
+
+      members.push(member);
+      saveMembers(members);
+      setCurrentMember(member);
+      registerForm.reset();
+
+      if (sheetResult.ok) {
+        showAuthAlert('สมัครสมาชิกสำเร็จ และส่งข้อมูลเข้า Google Sheet แล้ว');
+      } else if (sheetResult.configured === false) {
+        showAuthAlert('สมัครสมาชิกสำเร็จ แต่ยังไม่ได้ตั้งค่า Google Sheet Web App URL');
+      } else {
+        showAuthAlert('สมัครสมาชิกสำเร็จ แต่ส่งเข้า Google Sheet ไม่สำเร็จ กรุณาตรวจสอบ Web App URL');
+      }
+
+      setTimeout(closeAuth, 1200);
+    });
+
+    if (leadForm) {
+      leadForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('firstname').value.trim();
+        const contact = document.getElementById('contact').value.trim();
+
+        if (!name || !contact) {
+          leadStatus.textContent = 'กรุณากรอกชื่อและช่องทางติดต่อ';
+          return;
+        }
+
+        leadStatus.textContent = 'กำลังส่งข้อมูลให้ทีม PatriciaSales...';
+
+        const result = await submitToGoogleSheet({
+          type: 'lead_consultation',
+          name,
+          contact,
+          note: 'ขอคำปรึกษาจากหน้าแรก'
+        });
+
+        if (result.ok) {
+          leadStatus.textContent = 'ส่งข้อมูลสำเร็จ ทีม PatriciaSales จะติดต่อกลับเร็ว ๆ นี้';
+          leadForm.reset();
+        } else if (result.configured === false) {
+          leadStatus.textContent = 'บันทึกฟอร์มแล้ว แต่ยังไม่ได้ตั้งค่า Google Sheet Web App URL';
+        } else {
+          leadStatus.textContent = 'ส่งข้อมูลไม่สำเร็จ กรุณาติดต่อ LINE: pawarisa.r หรือโทร 061-405-3618';
+        }
+      });
+    }
+
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const password = document.getElementById('loginPassword').value;
+      const member = getMembers().find(item => item.email === email && item.password === password);
+
+      if (!member) {
+        showAuthAlert('อีเมลหรือรหัสผ่านไม่ถูกต้อง');
+        return;
+      }
+
+      setCurrentMember(member);
+      loginForm.reset();
+      showAuthAlert('เข้าสู่ระบบสำเร็จ');
+      setTimeout(closeAuth, 700);
+    });
+
+    renderMemberStatus();
+
+
     const chatToggle = document.getElementById('chatToggle');
     const chatClose = document.getElementById('chatClose');
     const chatPanel = document.getElementById('chatPanel');
